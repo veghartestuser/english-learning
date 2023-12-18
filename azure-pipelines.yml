@@ -14,9 +14,7 @@ steps:
   inputs:
     versionSpec: '18.x'
   displayName: 'Install Node.js'
-- task: CmdLine@2
-  inputs:
-    script: 'cd ./english-learning'
+
 - script: |
     npm install
     npm run build
