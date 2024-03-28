@@ -52,7 +52,7 @@ steps:
     azureSubscription: 'Azure subscription 1(731f386c-c9ca-4ecb-9288-a352e1a206c8)'
     appType: 'webAppLinux'
     WebAppName: 'english-test'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)'
     RuntimeStack: 'NODE|18-lts'
     StartupCommand: 'yarn start'
     ScriptType: 'Inline Script'
