@@ -26,6 +26,7 @@ steps:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: |
        server.js
+       package.json
     targetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Copy project files'
 
@@ -44,3 +45,15 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(731f386c-c9ca-4ecb-9288-a352e1a206c8)'
+    appType: 'webAppLinux'
+    WebAppName: 'english-test'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/*'
+    RuntimeStack: 'NODE|18-lts'
+    StartupCommand: 'yarn start'
+    ScriptType: 'Inline Script'
+    InlineScript: 'yarn install'
