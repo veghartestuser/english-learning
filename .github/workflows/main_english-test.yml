@@ -34,7 +34,7 @@ jobs:
         run: cp ./dist/english-learning/browser/* ./app
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./server.js ./package.json ./app/* -r
+        run: zip release.zip ./server.js ./package.json ./app/* ./node/* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
