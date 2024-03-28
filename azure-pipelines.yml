@@ -25,7 +25,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: |
-       ./server.js
+       server.js
        dist/english-learning/browser/*
        public/*
     targetFolder: '$(Build.ArtifactStagingDirectory)'
